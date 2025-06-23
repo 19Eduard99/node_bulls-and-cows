@@ -9,19 +9,22 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  const input = [...new Set(userInput)];
-
-  if (input.length !== 4 || input[0] === '0') {
+  if (userInput.length !== 4 || userInput[0] === '0') {
     return false;
   }
 
-  for (let i = 0; i < input.length; i++) {
-    if (isNaN(input[i])) {
+  for (let i = 0; i < userInput.length; i++) {
+    if (isNaN(userInput[i])) {
       return false;
     }
   }
 
+  const uniqueDigits = new Set(userInput);
+
+  if (uniqueDigits.size !== 4) {
+    return false;
+  }
+
   return true;
 }
-
 module.exports = { checkIsValidUserInput };

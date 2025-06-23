@@ -14,7 +14,8 @@ const randomNumber = generateRandomNumber();
 
 rl.question('Enter nums ', (nums) => {
   if (checkIsValidUserInput(nums)) {
-    getBullsAndCows(nums, randomNumber);
+    // eslint-disable-next-line no-console
+    console.log(getBullsAndCows(nums, randomNumber));
   } else {
     throw new Error('Invalid input');
   }
